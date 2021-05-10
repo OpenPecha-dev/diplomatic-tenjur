@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pedurma
+Version: 0.1.11
+Summary: Pedurma Reconstruction functionalities
+Home-page: https://github.com/Esukhia/pedurma
+Author: Ngawang Thrinley, Tenzin, Tenzin Kaldan
+Author-email: esukhiadev@gmail.com
+License: Apache2
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: antx (<1.0,>=0.1.8)
+Requires-Dist: openpecha (<1.0,>=0.7.31)
+
+# pedurma
+
+Package for pedurma reconstruction.
+
+

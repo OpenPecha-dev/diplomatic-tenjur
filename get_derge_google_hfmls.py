@@ -4,7 +4,11 @@ import yaml
 from antx import transfer
 from pathlib import Path
 
-logging.basicConfig(filename="vol_mapping.log", level=logging.DEBUG, filemode="w")
+root_logger= logging.getLogger()
+root_logger.setLevel(logging.DEBUG) # or whatever
+handler = logging.FileHandler('vol_mapping.log', 'w', 'utf-8') # or whatever
+handler.setFormatter(logging.Formatter('%(name)s %(message)s')) # or whatever
+root_logger.addHandler(handler)
 
 def match_derge_vol(pedurma_vol, derge_vol_mapping):
     derge_vols = []

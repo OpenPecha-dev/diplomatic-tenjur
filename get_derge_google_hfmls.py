@@ -79,6 +79,10 @@ def get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num):
     derge_google_vol = transfer_pg_br(derge_hfmls, pedurma_hfml)
     return derge_google_vol
 
+def rm_extra_tsek(vol_with_tsek):
+    vol_with_tsek = re.sub('(:)+', '\g<1>', vol_with_tsek)
+    return vol_with_tsek
+
 def build_derge_google_pedurma(pedurma_vol_mapping, derge_vol_mapping):
     for vol_id, pedurma_vol in pedurma_vol_mapping.items():
         pedurma_vol_num = f'v{int(vol_id):03}'
@@ -90,6 +94,7 @@ def build_derge_google_pedurma(pedurma_vol_mapping, derge_vol_mapping):
         if int(vol_id) > 41 and int(vol_id) < 49:
             continue
         derge_google_vol = get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num)
+        derge_google_vol = rm_extra_tsek(derge_google_vol)
         derge_google_vol_path.write_text(derge_google_vol, encoding='utf-8')
         print(f'INFO: {pedurma_vol_num} completed..')
 

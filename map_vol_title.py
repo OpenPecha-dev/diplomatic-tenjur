@@ -1,5 +1,6 @@
 import re
 import yaml
+from collections import defaultdict
 from pathlib import Path
 from pyewts import pyewts
 
@@ -38,15 +39,14 @@ def clean_title(title):
     return title
 
 def derge_title_update(derge_vol_mapping):
-    new_derge_vol_mapping = {}
+    new_derge_vol_mapping = defaultdict(dict)
     vol_paths = list(Path('./derge_hfmls/').iterdir())
     vol_paths.sort()
     vol_titles = [vol_path.stem for vol_path in vol_paths]
     for (vol_num, vol_info), vol_title in zip(derge_vol_mapping.items(), vol_titles):
-        derge_vol_mapping[vol_num]['bdrc'] = vol_info['bdrc']
-        derge_vol_mapping[vol_num]['vol'] = clean_title(vol_title)
-        derge_vol_mapping[vol_num]['file_name'] = vol_title
-    return derge_vol_mapping
+        new_derge_vol_mapping[clean_title(vol_title)]['bdrc'] = vol_info['bdrc']
+        new_derge_vol_mapping[clean_title(vol_title)]['file_name'] = vol_title
+    return new_derge_vol_mapping
 
 
 if __name__ == "__main__":
@@ -54,5 +54,6 @@ if __name__ == "__main__":
     peduma_vols = extract_pedurma_vol_info(pedurma_vol_titles)
     derge_vols = yaml.safe_load(Path('./derge_vol_mapping.yml').read_text(encoding='utf-8'))
     new_derge_vols = derge_title_update(derge_vols)
+    new_derge_vols = dict(new_derge_vols)
     new_derge_vols = yaml.safe_dump(new_derge_vols, sort_keys=False, allow_unicode=True)
     Path('./new_derge_vol_mapping.yml').write_text(new_derge_vols, encoding='utf-8')

@@ -45,7 +45,7 @@ def derge_title_update(derge_vol_mapping):
     vol_titles = [vol_path.stem for vol_path in vol_paths]
     for (vol_num, vol_info), vol_title in zip(derge_vol_mapping.items(), vol_titles):
         new_derge_vol_mapping[clean_title(vol_title)]['bdrc'] = vol_info['bdrc']
-        new_derge_vol_mapping[clean_title(vol_title)]['file_name'] = vol_title
+        new_derge_vol_mapping[clean_title(vol_title)]['file_name'] = f'v{int(vol_num):03}.txt'
     return new_derge_vol_mapping
 
 

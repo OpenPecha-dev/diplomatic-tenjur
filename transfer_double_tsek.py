@@ -23,7 +23,7 @@ if __name__ == "__main__":
     vol_with_tsek_paths.sort()
     vol_without_tsek_paths = list(Path('./google_pedurma_hfmls/').iterdir())
     vol_without_tsek_paths.sort()
-    for vol_with_tsek_path, vol_without_tsek_path in zip(vol_with_tsek_paths[14:20], vol_without_tsek_paths[14:20]):
+    for vol_with_tsek_path, vol_without_tsek_path in zip(vol_with_tsek_paths, vol_without_tsek_paths):
         vol_with_tsek = vol_with_tsek_path.read_text(encoding='utf-8')
         vol_without_tsek = vol_without_tsek_path.read_text(encoding='utf-8')
         new_vol_with_tsek = transfer_double_tsek(vol_without_tsek, vol_with_tsek)

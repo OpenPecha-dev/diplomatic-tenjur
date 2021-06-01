@@ -35,7 +35,7 @@ def get_pages(vol_text):
 
 
 def is_note_page(g_page, dg_page):
-    if (len(g_page) - len(dg_page) > 700) or re.search("<[𰵀-󴉱]?d", g_page) or "བསྡུར་འབྲས" in g_page:
+    if (len(g_page) - len(dg_page) > 700) or "བསྡུར་འབྲས" in g_page:
         return True
     else:
         return False

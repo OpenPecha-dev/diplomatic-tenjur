@@ -73,7 +73,7 @@ def get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num):
     derge_hfmls = ""
     derge_vols = match_derge_vol(pedurma_vol, derge_vol_mapping)
     for derge_vol in derge_vols:
-        derge_hfmls += f"{Path(f'./derge_hfmls/{derge_vol}.txt').read_text(encoding='utf-8')}\n"
+        derge_hfmls += f"{Path(f'./derge_hfmls/{derge_vol}').read_text(encoding='utf-8')}\n"
     logging.info(f'Derge vol {" &".join(derge_vols)} merged to form pedurma {pedurma_vol_num}..')
     pedurma_hfml = Path(f'./google_pedurma_hfmls_with_tsek/{pedurma_vol_num}.txt').read_text(encoding='utf-8')
     derge_google_vol = transfer_pg_br(derge_hfmls, pedurma_hfml)

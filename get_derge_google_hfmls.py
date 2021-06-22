@@ -98,12 +98,12 @@ def build_derge_google_pedurma(pedurma_vol_mapping, derge_vol_mapping):
         if derge_google_vol_path.is_file():
             print(f'INFO: {pedurma_vol_num} completed..')
             continue
-        if int(vol_id) > 41 and int(vol_id) < 78:
-            continue
-        derge_google_vol = get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num)
-        derge_google_vol = rm_extra_tsek(derge_google_vol)
-        derge_google_vol_path.write_text(derge_google_vol, encoding='utf-8')
-        print(f'INFO: {pedurma_vol_num} completed..')
+        if int(vol_id) > 110:
+            
+            derge_google_vol = get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num)
+            derge_google_vol = rm_extra_tsek(derge_google_vol)
+            derge_google_vol_path.write_text(derge_google_vol, encoding='utf-8')
+            print(f'INFO: {pedurma_vol_num} completed..')
 
 if __name__ == "__main__":
     pedurma_vol_mapping = yaml.safe_load(Path('./pedurma_vol_mapping.yml').read_text(encoding='utf'))

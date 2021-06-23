@@ -43,7 +43,7 @@ def is_note_page(g_page, dg_page):
     else:
         return False
 
-def  rm_annotations(text, annotations):
+def rm_annotations(text, annotations):
     clean_text = text
     for ann in annotations:
         clean_text = re.sub(ann, '', clean_text)

@@ -73,6 +73,7 @@ def transfer_pg_br(derge_hfml, google_hfml):
     return derge_google_text
 
 def transfer_pedurma_marker(vol_with_marker, vol_without_marker):
+    # vol_without_marker = rm_annotations(vol_without_marker, [r"\[[𰵀-󴉱]?[0-9]+[a-z]{1}\]"])
     google_body_with_marker = transfer(
         vol_with_marker,[
         ["marker",r"(#)"],

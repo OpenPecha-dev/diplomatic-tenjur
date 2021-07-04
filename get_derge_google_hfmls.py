@@ -89,13 +89,13 @@ def get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num):
     derge_hfmls = ""
     derge_vols = match_derge_vol(pedurma_vol, derge_vol_mapping)
     for derge_vol in derge_vols:
-        derge_hfmls += f"{Path(f'./derge_hfmls/{derge_vol}.txt').read_text(encoding='utf-8')}\n"
-        # derge_hfmls += f"{Path(f'./hfmls/P000002/{derge_vol}').read_text(encoding='utf-8')}\n"
+        # derge_hfmls += f"{Path(f'./derge_hfmls/{derge_vol}.txt').read_text(encoding='utf-8')}\n"
+        derge_hfmls += f"{Path(f'./hfmls/P000002/{derge_vol}').read_text(encoding='utf-8')}\n"
     logging.info(f'Derge vol {" &".join(derge_vols)} merged to form pedurma {pedurma_vol_num}..')
-    pedurma_hfml = Path(f'./google_pedurma_hfmls_with_tsek/{pedurma_vol_num}.txt').read_text(encoding='utf-8')
-    # pedurma_hfml = Path(f'./hfmls/12d32eb31c1a4cc59741cda99ebc7211/{pedurma_vol_num}.txt').read_text(encoding='utf-8')
-    derge_google_vol = transfer_pg_br(derge_hfmls, pedurma_hfml)
-    # derge_google_vol = transfer_pedurma_marker(derge_hfmls, pedurma_hfml)
+    # pedurma_hfml = Path(f'./google_pedurma_hfmls_with_tsek/{pedurma_vol_num}.txt').read_text(encoding='utf-8')
+    pedurma_hfml = Path(f'./hfmls/12d32eb31c1a4cc59741cda99ebc7211/{pedurma_vol_num}.txt').read_text(encoding='utf-8')
+    # derge_google_vol = transfer_pg_br(derge_hfmls, pedurma_hfml)
+    derge_google_vol = transfer_pedurma_marker(derge_hfmls, pedurma_hfml)
     return derge_google_vol
 
 @timed(unit="min")
@@ -108,19 +108,19 @@ def build_derge_google_pedurma(pedurma_vol_mapping, derge_vol_mapping):
     nalanda_vols = ['v001','v003', 'v004', 'v005', 'v011', 'v012', 'v013', 'v014', 'v015', 'v016', 'v018', 'v019', 'v021', 'v022', 'v024', 'v025', 'v026', 'v027', 'v028', 'v033', 'v034', 'v036', 'v037', 'v038', 'v039', 
                     'v040', 'v041', 'v049', 'v051', 'v052', 'v053', 'v055', 'v056', 'v057', 'v058', 'v060', 'v061', 'v062', 'v063', 'v064', 'v065', 'v066', 'v067', 'v070', 'v071', 'v073', 'v075', 'v076', 'v077', 'v078',
                     'v079', 'v082', 'v083', 'v088', 'v089', 'v092', 'v093', 'v094', 'v096', 'v097', 'v098', 'v105', 'v106', 'v107', 'v108', 'v111', 'v114', 'v116']
-
+    nalanda_vols = ['v075']
     for vol_id, pedurma_vol in pedurma_vol_mapping.items():
         pedurma_vol_num = f'v{int(vol_id):03}'
         print(f'{pedurma_vol_num} processing...')
-        # derge_google_vol_path = Path(f'./google_pedurma_hfmls_with_marker/{pedurma_vol_num}.txt')
-        derge_google_vol_path = Path(f'./derge_google_pedurma/{pedurma_vol_num}.txt')
+        derge_google_vol_path = Path(f'./google_pedurma_hfmls_with_marker/{pedurma_vol_num}.txt')
+        # derge_google_vol_path = Path(f'./derge_google_pedurma/{pedurma_vol_num}.txt')
         if derge_google_vol_path.is_file():
             print(f'INFO: {pedurma_vol_num} completed..')
             continue
-        # if pedurma_vol_num in nalanda_vols:
-        derge_google_vol = get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num)
-        derge_google_vol = rm_extra_tsek(derge_google_vol)
-        derge_google_vol_path.write_text(derge_google_vol, encoding='utf-8')
+        if pedurma_vol_num in nalanda_vols:
+            derge_google_vol = get_derge_google_vol(pedurma_vol, derge_vol_mapping, pedurma_vol_num)
+            derge_google_vol = rm_extra_tsek(derge_google_vol)
+            derge_google_vol_path.write_text(derge_google_vol, encoding='utf-8')
         print(f'INFO: {pedurma_vol_num} completed..')
 
 if __name__ == "__main__":

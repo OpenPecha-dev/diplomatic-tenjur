@@ -19,7 +19,7 @@
 
 ## Description
 
-Text inside pedurma tengyur are mapped using BDRC outline.
+Text inside pedurma tengyur are mapped using BDRC and RKTS outline.
 
 <!-- This section provides a high-level overview for the repo -->
 

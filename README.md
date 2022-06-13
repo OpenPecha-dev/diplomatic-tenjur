@@ -1,70 +1,43 @@
-# diplomatic-tenjur
-Tenjur with consist of derge text and line and page break of pedurma with its notes part.
-['v001',
- 'v003',
- 'v004',
- 'v005',
- 'v011',
- 'v012',
- 'v013',
- 'v014',
- 'v015',
- 'v016',
- 'v018',
- 'v019',
- 'v021',
- 'v022',
- 'v024',
- 'v025',
- 'v026',
- 'v027',
- 'v028',
- 'v033',
- 'v034',
- 'v036',
- 'v037',
- 'v038',
- 'v039',
- 'v040',
- 'v041',
- 'v049',
- 'v051',
- 'v052',
- 'v053',
- 'v055',
- 'v056',
- 'v057',
- 'v058',
- 'v060',
- 'v061',
- 'v062',
- 'v063',
- 'v064',
- 'v065',
- 'v066',
- 'v067',
- 'v070',
- 'v071',
- 'v073',
- 'v075',
- 'v076',
- 'v077',
- 'v078',
- 'v079',
- 'v082',
- 'v083',
- 'v088',
- 'v089',
- 'v092',
- 'v093',
- 'v094',
- 'v096',
- 'v097',
- 'v098',
- 'v105',
- 'v106',
- 'v107',
- 'v108',
- 'v111',
- 'v114',
- 'v116']
+<h1 align="center">
+  <br>
+  <a href="https://openpecha.org"><img src="https://avatars.githubusercontent.com/u/82142807?s=400&u=19e108a15566f3a1449bafb03b8dd706a72aebcd&v=4" alt="OpenPecha" width="150"></a>
+  <br>
+</h1>
+
+<h3 align="center">pedurma-tengyur-text-mapper/h3>
+
+
+<!-- Replace the title of the repository -->
+
+<p align="center">
+  <a href="#description">Description</a> •
+  <a href="#owner">Owner</a> •
+  <a href="#integrations">Integrations</a> •
+  <a href="#docs">Docs</a>
+</p>
+<hr>
+
+## Description
+
+Text inside pedurma tengyur are mapped using BDRC outline.
+
+<!-- This section provides a high-level overview for the repo -->
+
+## Owner
+
+- [@kaldan7](https://github.com/kaldan7)
+
+
+<!-- This section lists the owners of the repo -->
+
+## Integrations
+
+- No integrations with other repos.
+
+<!-- This section must list as bulleted list how this repo depends or is integrated with other repos -->
+
+## Docs
+
+No documentations.
+
+<!-- This section must link to the docs which are in the root of the repository in /docs -->

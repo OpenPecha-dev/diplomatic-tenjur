@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h3 align="center">pedurma-tengyur-text-mapper/h3>
+<h3 align="center">pedurma-tengyur-text-mapper </h3>
 
 
 <!-- Replace the title of the repository -->
